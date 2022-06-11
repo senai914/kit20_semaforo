@@ -63,7 +63,7 @@
 #define AJUSTEFREQUENCIA    3
 
 /* Constantes */
-#define cTempo_Timer    3036    /* 4Mhz; 16 bits; prescale 1:8    ->   0.25s */
+#define cTempo_Timer    3036    /* 4Mhz; 16 bits; prescale 1:4    ->   0.25s */
 #define cTempo_Amarelo  3       /* Tempo, em segundos, para o status AMARELO */
 #define cVersaoFirmware "2.0"   
 #define cIdxMenuMax     11      /* Indica a quantidade de menus */
@@ -1029,7 +1029,7 @@ void ConfiguracoesPIC (void)
     InicializaLCD(LCD_FOUR_BIT & LCD_LINES_5X7);
 
     /* Inicializa o Timer 1 e habilita interrupção */
-    T1CON = 0b00110100;     /* Clock interno; prescale 1:8 */
+    T1CON = 0b00100100;     /* Clock interno; prescale 1:4 */
     PIR1bits.TMR1IF = 0;
     PIE1bits.TMR1IE = 1;
     T1CONbits.TMR1ON = 1;
